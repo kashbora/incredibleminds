@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+body, html {
+  height: 100%;
+  background-color: #2c3531;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Quicksand;
+}
+
+
+
+.container {
+  position: absolute;
+ color: #ffcb9a;
+  margin-top: 170px;
+  max-width: 400px;
+  padding: 16px;
+  background-color: #116466;
+  font-family: com;
+
+}
+
+  input[type=text], input[type=password] {
+  width: 85%;
+  padding:8px;
+  
+  border: none;
+  background:#d1e8e2;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ffcb9a;
+  outline: none;
+}
+
+.btn {
+  background-color: #d9b08c;
+  color: #116466;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+  background-color: #ffcb9a;
+}
+
+.login_icons
+{
+width: 20px;
+height: 20px;
+  
+}
+
+.login_logo
+{
+  object-fit: cover;
+  width: 400px;
+  margin-top: 150px;
+}
+
+.login_form
+{
+  display: flex;
+}
+
+.login_footer
+{
+  margin-top: 10px;
+}
+.vl
+    {
+      border-left: 2px solid #ffcb9a;
+      height: 200px;
+      margin-top: 200px;
+    }
+
+@media screen and (max-width: 768px)
+{
+  .login_form
+  {
+   display: inline-block;
+  }
+
+  .container
+  {
+    width: 90%;
+    margin-top: 49px;
+    font-size: 16px;
+  }
+  .login_logo
+  {
+    width: inherit;
+    margin-top: 0;
+  }
+  .login_icons
+  { object-fit: cover;
+    width: 5px; 
+    height: 14px;
+
+     }
+
+    .h1_login
+    {
+      font-size: 30px;
+    } 
+    .btn
+    {
+      width: 50%;
+    }
+    #psw_reset
+    {
+      text-decoration: none;
+      color: #ffcb9a;
+    }
+
+    #psw_reset:hover
+    {
+      color: #d9b08c;
+    }
+    .vl
+    {
+      border-top: 1px solid #ffcb9a;
+      width: auto;
+      height: 0;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      margin-left: 14px;
+    }
+}
+
+#psw_reset
+    {
+      text-decoration: none;
+      color: #ffcb9a;
+    }
+
+    #psw_reset:hover
+    {
+      color: #d9b08c;
+    }
+
+    

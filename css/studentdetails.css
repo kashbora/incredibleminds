@@ -28,6 +28,15 @@ html,body
 
 }
 
+.form_course
+{
+	margin-top: 100px;
+	background-color: #116466;
+	font-family: 'Libre Franklin';
+	color: #d1e8e2;
+	
+}
+
 .bgstudent
 {
 	position: absolute;
@@ -39,6 +48,16 @@ html,body
 
 }
 
+.bgcourse
+{
+	position: absolute;
+	
+	width:50%;
+	height: 550px;
+	object-fit: cover;
+	margin-top: 10px;
+}
+
 .studentheader
 {
 	background-image: url('../img/stdheader.png');
@@ -47,6 +66,20 @@ html,body
 	background-repeat: no-repeat;
 	width: 350px;
 	margin-left: 150px;
+	padding: 15px;
+	font-size: 30px;
+	font-family: 'Oxygen';
+
+}
+
+.courseheader
+{
+	background-image: url('../img/stdheader.png');
+	height: 80px;
+	margin-top: 100px;
+	background-repeat: no-repeat;
+	width: 350px;
+	margin-left: 500px;
 	padding: 15px;
 	font-size: 30px;
 	font-family: 'Oxygen';
@@ -185,7 +218,15 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 		}
 }
 
-.areadown
+.areadownstud
+{
+	background-image: url('../img/bg4.png');
+	position: absolute;
+	height: 550px;
+	width: 100%;
+	top: 40%;
+}
+.areadowncourse
 {
 	background-image: url('../img/bg4.png');
 	position: absolute;
@@ -198,11 +239,23 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 {
 .bgstudent
 {
-	height: 220vh;
+	height: 170vh;
 	width: 100%;
 }
 
 .studentheader
+{
+	margin-left: 4px;
+	width: 100%;
+}
+
+.bgcourse
+{
+	height: 120vh;
+	width: 100%;
+}
+
+.courseheader
 {
 	margin-left: 4px;
 	width: 100%;
@@ -218,12 +271,20 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 	position: fixed;
 }
 
-.areadown
+.areadowncourse
 {
 	background-image: url('../img/bg4mob.png');
 	width: 100%;
 	height:500px;
-	top: 170%;
+	top: 110%;
+
+}
+.areadownstud
+{
+	background-image: url('../img/bg4mob.png');
+	width: 100%;
+	height:500px;
+	top: 140%;
 
 }
 }

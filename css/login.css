@@ -65,10 +65,18 @@ height: 20px;
   width: 400px;
   margin-top: 150px;
 }
-
+#particles-js
+{
+height:100%;
+  margin:0;
+  padding:0;
+}
 .login_form
 {
   display: flex;
+  position:fixed; 
+  top:50px; 
+  height:100px;
 }
 
 .login_footer

@@ -55,7 +55,7 @@
             #test for match of admin email and password. If matched, then redirects to the next page.
             if ($email == $row["email"] && $psw == $row["password"])
             {
-                header("Location: /incredibleminds/studentdetails.php");
+                header('Location: /incredibleminds/studentdetails.php');
                 exit();
             }
             else

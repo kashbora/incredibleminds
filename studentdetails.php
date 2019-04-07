@@ -47,7 +47,7 @@
         $query="insert into student (sid,fname,lname,dob,sPhone,sEmail,address,city,state,pincode,pPhone,pEmail) values ('$sid','$fname','$lname','$dob','$sPhone','$sEmail','$address','$city','$state','$pincode','$pPhone','$pEmail') ";
         if($conn->query($query)==TRUE)
         {
-            header('Location: /incredibleminds/course.html');
+            header('Location: /incredibleminds/courses.php');
             exit();
         }
         ?>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        Course ID:
+        <select id="CID" name="cid">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <br>
+    </form>
+
+        Course name:<input type="text" id="courseName" />
+        <!-- <script>
+                function populateData()
+                {
+                    y=document.getElementById("CID");
+                    document.getElementById("courseName").value=[y.selectedIndex()];
+                }
+            </script> -->
+    
+    
+</body>
+</html>

@@ -235,6 +235,74 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 	top: 40%;
 }
 
+.areadownwork
+{
+	background-image: url('../img/bg4.png');
+	position: absolute;
+	height: 550px;
+	width: 100%;
+	top: 40%;
+}
+#accordion a
+{
+	color: #d9b08c;
+	text-decoration: none;
+}
+
+#accordion a:hover
+{
+	color: #ffcb9a;
+}
+
+#accordion .card
+{
+	width: 50%;
+	margin-left: 260px;
+}
+
+#accordion .card-header{
+ padding: 10;
+ border-radius: 0;
+ text-align: center;
+ border: none;
+ background-color: #116466;
+}
+
+
+
+#accordion .card-body{
+ font-size: 14px;
+ color:#2c3531 ;
+ background: #d1e8e2;
+ padding: 15px 20px;
+ line-height: 25px;
+ border: none;
+ position: relative;
+}
+
+#accordion .card-body:after{
+ content: "";
+ position: absolute;
+ top: -30px;
+ left: 40px;
+ border: 15px solid transparent;
+ border-bottom: 15px solid #d1e8e2;
+}
+
+.workheader
+{
+	background-image: url('../img/stdheader.png');
+	height: 80px;
+	margin-top: 100px;
+	background-repeat: no-repeat;
+	width: 350px;
+	margin-left: 480px;
+	padding: 15px;
+	font-size: 30px;
+	font-family: 'Oxygen';
+
+}
+
 @media screen and (max-width: 768px)
 {
 .bgstudent
@@ -256,6 +324,12 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 }
 
 .courseheader
+{
+	margin-left: 4px;
+	width: 100%;
+}
+
+.workheader
 {
 	margin-left: 4px;
 	width: 100%;
@@ -287,6 +361,18 @@ input[type=text]:focus, input[type=date]:focus,input[type=email]:focus {
 	top: 140%;
 
 }
+.areadownwork
+{
+	background-image: url('../img/bg4.png');
+	position: absolute;
+	height: 550px;
+	width: 100%;
+	top: 30%;
 }
 
-
+	#accordion .card
+{
+	width: auto;
+	margin-left: 10px;
+}
+}

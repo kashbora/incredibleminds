@@ -52,19 +52,24 @@
         }
         #---------------------------------------------------------------------------------------
 
-        $sid=$cid=$pay=$cName=$cLevel=$fid=$fName='';
+        $sid=$cid=$pay=$cName=$cLevel=$fid=$fName=$url=$tid='';
+        $status='pending';
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $sid=$_POST["sid"];
             $cid=$_POST["cid"];
-            $cName=$_POST["cName"];
-            $cLevel=$_POST["cLevel"];
+            // $cName=$_POST["cName"];
+            // $cLevel=$_POST["cLevel"];
             $fid=$_POST["fid"];
-            $fName=$_POST["fName"];
-            $pay=$_POST["pay"];
+            // $fName=$_POST["fName"];
+            // $pay=$_POST["pay"];
+            $url=$_POST["url"];
         }
-        $queryyy="insert into enroll (sid,cid,cName,cLevel,fid,fName,payMethod) values ('$sid','$cid','$cName','$cLevel','$fid','$fName','$pay') ";
-        if($conn->query($queryyy)==TRUE)
+        $query1="insert into student_course (stud_id,course_id,faculty_id) values ('$sid','$cid','$fid') ";
+        $conn->query($query1);
+        $query2="insert into student_admission(stud_id,course_id,trans_id,trans_proof_url,bill_status) values('$sid','$cid','$tid','$url','$status') ";
+        $conn->query($query2);
+        if($conn->query($query1)==TRUE && $conn->query($query2)==TRUE)
         {
             header('Location: /incredibleminds/blabla.html');
             exit();
@@ -155,7 +160,7 @@
 				<br>
 				<div class="row grid-row">
 					<label for="formfile">Upload</label>
-					<input type="file" class="form-control-file" id="">
+					<input type="file" name="url" class="form-control-file" id="">
 				</div>
 				<br>
 			<button id="" type="submit" class="btn submitbutton">Submit</button>

@@ -32,12 +32,37 @@
 					document.getElementById("displayArea").innerHTML=this.responseText;
 				}
 			}
-			xmlhttp.open("GET","getCourseInfo.php?q="+str,true);
+			xmlhttp.open("GET","getFacultyInfo.php?q="+str,true);
 			xmlhttp.send();
 		}
 		</script>
 </head>
 <body class="studbody">
+        <?php
+        #connection and retrieving admin info
+        $dbhost = '127.0.0.1';
+        $dbuser = 'root';
+        $dbpass = '';
+        $db = 'im';
+        $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
+        
+        if(! $conn ) {
+           die('Could not connect: ' . mysql_error());
+        }
+        #---------------------------------------------------------------------------------------
+
+        $cid=$cName=$fid=$fName=$details='';
+        if($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            $fid=$_POST["fid"];
+            $fName=$_POST["fName"];
+            $details=$_POST["details"];
+            $cName=$_POST["cName"];
+            $cid=$_POST["cid"];
+
+        }
+        
+    ?>
 <div class="courseheader text-center">  Faculty Details </div>
 
 
@@ -83,20 +108,22 @@
 						Faculty ID : &nbsp; &nbsp;
 					</label>
 					<div class="col-lg-8 col-xs-6">
-					<input id="" type="text"  class="form-control" id="" placeholder="Faculty ID" required>
+                            <select name="fid" id="fid" class="form-control" onchange="populateData(this.value)">
+                                    <?php 
+                                        $res=$conn->query("select facultyID from faculty");
+                                        if($res->num_rows>0)
+                                            while($row=$res->fetch_assoc())
+                                            {
+                                                echo "<option>".$row["facultyID"]."</option>";
+                                            }
+                                    ?>
+                                </select>
 				</div>
 				</div>
-				<br>
-				<div class="row grid-row">
-					<label for="FacName" class="col-form-label col-form-label-2">
-						Faculty Name :
-					</label>
-					
-				<div class="col-lg-8 col-xs-6">
-					<input id="" type="text"  class="form-control" id="" placeholder="Faculty Name" required>
-				</div>
-				</div>
-				<br>
+                <span id="displayArea"></span>
+                <br>
+                
+				<!-- <br>
 				<div class="row grid-row">
 					<label for="courseID" class="col-form-label col-form-label-2">
 					 Skills : &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -106,42 +133,10 @@
 				
 				</div>
 			</div>
-				<br>
-				<div class="row grid-row">
-					<label for="CourName" class="col-form-label col-form-label-2">
-						Course Name :
-					</label>
-					<div class="col-lg-8 col-xs-6">
-					<select class="form-control" id="">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
-				</div>
-				<br>
-				<div class="row grid-row">
-					<label for="courID" class="col-form-label col-form-label-2">
-						Course ID : &nbsp;  &nbsp; &nbsp;
-					</label>
-					<div class="col-lg-8 col-xs-6">
-					<input id="" type="text"  class="form-control" id="" placeholder="Course ID" required>
-				</div>
-				</div>
-				<br>
-				<div class="row grid-row">
-					<label for="facultyname" class="col-form-label col-form-label-2">
-						Qualifications :
-					</label>
-					<div class="col-lg-8 col-xs-6">
-					<textarea class="form-control" rows="3"></textarea> 
-				</div>
-				</div>
+			<br> -->
 				<br>
 				<br>
-			<button id="" type="submit" class="btn submitbutton">Submit</button>
+			<button id="" type="submit" class="btn submitbutton">Done</button>
 				
 <hr>
 			</form>

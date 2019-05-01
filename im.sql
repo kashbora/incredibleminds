@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 06, 2019 at 07:17 PM
+-- Generation Time: May 01, 2019 at 07:50 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `coursefaculty`;
 CREATE TABLE IF NOT EXISTS `coursefaculty` (
   `cid` varchar(10) NOT NULL,
   `fid` varchar(10) NOT NULL,
-  PRIMARY KEY (`cid`,`fid`),
+  PRIMARY KEY (`fid`),
   KEY `fid` (`fid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -84,6 +84,24 @@ INSERT INTO `courses` (`cid`, `cName`, `cLevel`, `cDetails`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `demo`
+--
+
+DROP TABLE IF EXISTS `demo`;
+CREATE TABLE IF NOT EXISTS `demo` (
+  `teacherID` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `demo`
+--
+
+INSERT INTO `demo` (`teacherID`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `faculty`
 --
 
@@ -120,7 +138,7 @@ DROP TABLE IF EXISTS `login`;
 CREATE TABLE IF NOT EXISTS `login` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -157,7 +175,82 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`sid`, `fname`, `lname`, `dob`, `sPhone`, `sEmail`, `address`, `city`, `state`, `pincode`, `pPhone`, `pEmail`) VALUES
-('1jb16cs034', 'chandan', 'p', '1998-07-17', 7022223677, 'chandanps98@gmail.com', '#22,yamuna block,goodwill apartments,chandra layout', 'bengaluru', 'Karnataka', 560040, 9876543234, 'iwonttell@gmail.com');
+('1jb16cs034', 'chandan', 'p', '1998-07-17', 7022223677, 'chandanps98@gmail.com', '#22,yamuna block,goodwill apartments,chandra layout', 'bengaluru', 'Karnataka', 560040, 9876543234, 'iwonttell@gmail.com'),
+('1jb16cs000', 'kiladihandan', '\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\k', '2019-04-30', 7022223677, 'imemyself497@gmail.com', 'sda', 'Bangalore', 'Karnataka', 560040, 7022223677, 'imemyself497@gmail.com'),
+('1jb16cs749', 'the legend', 'chilla', '2019-05-01', 9876543210, 'GOTiscrazyaf@crazymail.com', '#life, fucked up street', 'no idea', 'why divide?', 560040, 1234567890, 'iwonttell@bye.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_admission`
+--
+
+DROP TABLE IF EXISTS `student_admission`;
+CREATE TABLE IF NOT EXISTS `student_admission` (
+  `stud_id` varchar(10) NOT NULL,
+  `course_id` varchar(10) NOT NULL,
+  `trans_id` varchar(20) NOT NULL,
+  `trans_proof_url` varchar(50) NOT NULL,
+  `bill_status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`trans_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_course`
+--
+
+DROP TABLE IF EXISTS `student_course`;
+CREATE TABLE IF NOT EXISTS `student_course` (
+  `stud_id` varchar(10) NOT NULL,
+  `course_id` varchar(10) NOT NULL,
+  `faculty_id` varchar(10) NOT NULL,
+  KEY `stud_id` (`stud_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_course`
+--
+
+INSERT INTO `student_course` (`stud_id`, `course_id`, `faculty_id`) VALUES
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('1jb16cs034', 'C0001', 'IM0001'),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('', '', ''),
+('1jb16cs749', 'C0005', 'IM005'),
+('1jb16cs749', 'C0005', 'IM005');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wokrshop`
+--
+
+DROP TABLE IF EXISTS `wokrshop`;
+CREATE TABLE IF NOT EXISTS `wokrshop` (
+  `ws_id` varchar(10) NOT NULL,
+  `ws_dutration` int(11) NOT NULL COMMENT 'in weeks time',
+  `ws_name` varchar(20) NOT NULL,
+  `ws_cost` int(11) NOT NULL,
+  PRIMARY KEY (`ws_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,72 +7,7 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-    <?php
-        #connection and retrieving admin info
-        $dbhost = '127.0.0.1';
-        $dbuser = 'root';
-        $dbpass = '';
-        $db = 'im';
-        $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
-        
-        if(! $conn ) {
-           die('Could not connect: ' . mysql_error());
-        }
-        
-        $query='select email,password from login';
-        $result=$conn->query($query);
-        
-        $row = $result->fetch_assoc();
-        $conn->close();
-        #---------------------------------------------------------------------------------------
-        #retreiving values from the form
-        $emailErr=$pswErr='';
-        $email=$psw='';
-        if ($_SERVER["REQUEST_METHOD"] == "POST") 
-        {
-            if (empty($_POST["email"])) 
-            {
-                $emailErr = "Email is required";
-            }
-            else
-            {
-                $email = test_input($_POST["email"]);
-                
-                // check if e-mail address is well-formed
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-                {
-                   $emailErr = "Invalid email format"; 
-                }
-            }
-            if (empty($_POST["psw"])) 
-            {
-                $pswErr = "Password is required";
-            }
-            else 
-            {
-                $psw = test_input($_POST["psw"]);
-            }
-            #test for match of admin email and password. If matched, then redirects to the next page.
-            if ($email == $row["email"] && $psw == $row["password"])
-            {
-                header('Location: /incredibleminds/studentdetails.php');
-                exit();
-            }
-            else
-            {
-                print("<h2 style='color:grey;'>wrong password or email ID</h2>");
-            }
-        }
-
-        function test_input($data) 
-        {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-         }
-        
-    ?>
+    
     
 	<div id="bgeff">
 		<script type="text/javascript" src="js/particles.js">
@@ -117,7 +52,43 @@
     <input type="password" placeholder="Enter Password" name="psw" required id="">
 	</div>
 
-    <button type="submit" class="btn" id="">Login</button>
+    <button type="submit" class="btn" id="" name="loginButton">Login</button>
+
+    <?php
+        #connection and retrieving admin info
+        if(isset($_POST['loginButton'])) 
+        {
+            ob_start();
+            session_start();
+            //Login button was pressed
+            $username = $_POST['email'];
+            $password = $_POST['psw'];
+
+            $con = mysqli_connect("localhost", "root", "", "im");
+        
+
+
+            // $result = $account->login($username, $password);
+            $pw = md5($password);
+            // echo $password,"<br>";
+            // echo $pw;
+
+            $res=mysqli_query($con,"SELECT * FROM `login` WHERE `email`= $username AND`password`=$pw;");
+            if(!$res)
+            {
+                
+                echo "login done successfully";
+                $_SESSION['userLoggedIn'] = "$username";
+                header('Location: /incredibleminds/menu.php');
+            }
+            else 
+            {
+                echo "fail login";
+            }
+
+            
+        }
+    ?>
     
      <footer id="" class="login_footer"><a href="#" id="psw_reset">Forgot your password?</a></footer>
   </form>

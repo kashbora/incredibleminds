@@ -25,31 +25,39 @@
         }
         #---------------------------------------------------------------------------------------
         #retreiving values from the form
-        $sid=$fname=$lname=$sEmail=$address=$city=$state=$pEmail=$dob='';
-        $pPhone=$sPhone=$pincode=0;
-        if ($_SERVER["REQUEST_METHOD"] == "POST") 
+
+        if(isset($_POST['submit'])) 
         {
-            $sid=$_POST["sid"];
-            $fname=$_POST["fname"];
-            $lname=$_POST["lname"];
-            $dob=$_POST["dob"];
-            $sPhone=$_POST["sPhone"];
-            $pPhone=$_POST["pPhone"];
-            $sEmail=$_POST["sEmail"];
-            $pEmail=$_POST["pEmail"];
-            $address=$_POST["address"];
-            $city=$_POST["city"];
-            $state=$_POST["state"];
-            $pincode=$_POST["pincode"];
-        }
-        #-------------------------------------------------------------------------------------------
-        #inserting values into the db
-        $query="insert into student (sid,fname,lname,dob,sPhone,sEmail,address,city,state,pincode,pPhone,pEmail) values ('$sid','$fname','$lname','$dob','$sPhone','$sEmail','$address','$city','$state','$pincode','$pPhone','$pEmail') ";
-        if($conn->query($query)==TRUE)
-        {
-            header('Location: /incredibleminds/courses.php');
-            exit();
-        }
+	        $sid=$fname=$lname=$sEmail=$address=$city=$state=$pEmail=$dob='';
+	        $pPhone=$sPhone=$pincode=0;
+	        if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	        {
+	            $sid=$_POST["sid"];
+	            $fname=$_POST["fname"];
+	            $lname=$_POST["lname"];
+	            $dob=$_POST["dob"];
+	            $sPhone=$_POST["sPhone"];
+	            $pPhone=$_POST["pPhone"];
+	            $sEmail=$_POST["sEmail"];
+	            $pEmail=$_POST["pEmail"];
+	            $address=$_POST["address"];
+	            $city=$_POST["city"];
+	            $state=$_POST["state"];
+	            $pincode=$_POST["pincode"];
+	        }
+	        #-------------------------------------------------------------------------------------------
+	        #inserting values into the db
+	        $query="insert into student (sid,fname,lname,dob,sPhone,sEmail,address,city,state,pincode,pPhone,pEmail) values ('$sid','$fname','$lname','$dob','$sPhone','$sEmail','$address','$city','$state','$pincode','$pPhone','$pEmail') ";
+	        if($conn->query($query)==TRUE)
+	        {
+	            header('Location: /incredibleminds/menu.php');
+	            exit();
+	        }
+	        else
+	        {
+	        	 header('Location:/');
+	        }
+    	}
         ?>
 
 <div class="studentheader text-center">  Student Details </div>
@@ -202,7 +210,7 @@
 			</div>
 
 			<br>
-			<button id="" type="submit" class="btn submitbutton">Submit</button>
+			<button id="" type="submit" name="submit" class="btn submitbutton">Submit</button>
 				
 
 			</form>

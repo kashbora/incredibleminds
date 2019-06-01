@@ -45,17 +45,17 @@
 	
 	<div class="wheel">
 		<div class="offset-lg-11 studnav">
-		<a href="studentdetails.html">
+		<a href="studentdetails.php">
 		<img src="img/studnav.png" width="344.4px" height="203px">
 	</a>
 	</div>
 	<div class="offset-lg-4 adwork">
 		<a href="admissiondet.html"><img src="img/adnav.png" width="344.4px" height="203px"></a>
-		<a href="workshop.html"><img class="worknav" src="img/worknav.png" width="344.4px" height="203px"></a>
+		<a href="workshop.php"><img class="worknav" src="img/worknav.png" width="344.4px" height="203px"></a>
 </div>
 <div class="coufac offset-lg-4">
-	<a html="facultydetails.html" ><img src="img/facnav.png" width="344.4px" height="203px"></a>
-		<a href="course.html"><img class="coursenav" src="img/coursenav.png" width="344.4px" height="203px"></a>
+	<a href="facultydetails.php" ><img src="img/facnav.png" width="344.4px" height="203px"></a>
+		<a href="courses.php"><img class="coursenav" src="img/coursenav.png" width="344.4px" height="203px"></a>
 
 </div>
 </body>
